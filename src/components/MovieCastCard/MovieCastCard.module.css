@@ -5,8 +5,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: var(--small-distance);
 }
 
 .image-container img {
   object-fit: cover;
+}
+
+.name {
+  margin-bottom: var(--medium-distance);
+  font-size: var(--medium-font-size);
 }

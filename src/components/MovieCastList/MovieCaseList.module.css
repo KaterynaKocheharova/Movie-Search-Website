@@ -1,0 +1,8 @@
+.item {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: var(--card-border-radius);
+  border-top: 1px solid var(--main-font-color);
+  border-bottom: 1px solid var(--main-font-color);
+  text-align: center;
+}
