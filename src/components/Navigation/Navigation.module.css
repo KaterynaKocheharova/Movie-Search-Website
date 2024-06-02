@@ -1,0 +1,23 @@
+.navigation-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.active {
+  color: var(--accent-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: var(--small-distance);
+}
+
+.active::after {
+  display: block;
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+}
