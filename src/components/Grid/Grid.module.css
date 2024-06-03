@@ -1,10 +1,11 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 50px;
+  grid-template-columns: repeat(auto-fill, 200px);
+  justify-content: center;
+  gap: var(--big-distance);
 }
 
-@media screen and (min-width: 1000px) {
+/* @media screen and (min-width: 1000px) {
   .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -15,4 +16,4 @@
   .movie-cast-grid {
     grid-template-columns: repeat(4, 1fr);
   }
-}
+} */

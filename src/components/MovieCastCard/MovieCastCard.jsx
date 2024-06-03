@@ -13,7 +13,11 @@ const MovieCastCard = ({ castItemData: { character, name, profile_path } }) => (
         alt={`${name}`}
       />
     </div>
-    <p>Character: {character}</p>
+    {character && (
+      <p className={css.character}>
+        <span className={css["accent-character"]}>Character:</span> {character}
+      </p>
+    )}
   </>
 );
 

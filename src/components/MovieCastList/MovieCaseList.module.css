@@ -5,4 +5,5 @@
   border-top: 1px solid var(--main-font-color);
   border-bottom: 1px solid var(--main-font-color);
   text-align: center;
+  text-wrap: nowrap;
 }
