@@ -1,19 +1,6 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 200px);
+  grid-template-columns: repeat(auto-fill, 300px);
   justify-content: center;
   gap: var(--big-distance);
 }
-
-/* @media screen and (min-width: 1000px) {
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media screen and (min-width: 1000px) {
-  .movie-cast-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-} */

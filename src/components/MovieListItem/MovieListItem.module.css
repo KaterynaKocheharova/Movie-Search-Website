@@ -1,10 +1,9 @@
 .movie-image {
-  border-radius: var(--card-border-radius);
-  margin-bottom: var(--small-distance);
+  margin-bottom: var(--medium-distance);
 }
 
-.movie-link {
-  display: inline-block;
-  font-size: var(--medium-font-size);
+.movie-name {
+  text-align: center;
   font-weight: 600;
+  margin-bottom: var(--medium-distance);
 }

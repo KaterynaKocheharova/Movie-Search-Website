@@ -2,11 +2,12 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--small-distance);
+  justify-content: center;
 }
 
 .genres-item {
   text-align: center;
-  padding: 8px;
+  padding: 5px;
   border-radius: var(--card-border-radius);
   background-color: var(--accent-color);
   font-size: var(--small-font-size);

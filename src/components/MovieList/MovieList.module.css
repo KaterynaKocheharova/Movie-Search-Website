@@ -1,1 +1,6 @@
-
+.movie-item {
+  border-radius: var(--card-border-radius);
+  overflow: hidden;
+  border: 1px solid var(--main-font-color);
+  padding-bottom: var(--small-distance);
+}

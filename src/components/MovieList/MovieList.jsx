@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getAllGenres } from "../../movies-api";
 import Grid from "../Grid/Grid";
 import MovieListItem from "../MovieListItem/MovieListItem";
+import css from "./MovieList.module.css";
 
 const MovieList = ({ movies }) => {
   const [genres, setGenres] = useState([]);
@@ -20,7 +21,7 @@ const MovieList = ({ movies }) => {
       {genres.length > 0 &&
         movies.map((movie) => {
           return (
-            <li key={movie.id}>
+            <li className={css["movie-item"]} key={movie.id}>
               <MovieListItem movie={movie} genres={genres} />
             </li>
           );
