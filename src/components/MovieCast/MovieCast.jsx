@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieCast } from "../../movies-api";
-import PaginatedItems from "./PaginatedItems";
+import PaginatedItems from "../PaginatedItems/PaginatedItems";
+import MovieCastList from "../MovieCastList/MovieCastList";
 import Loader from "../Loader/Loader";
 import Error from "../Error/Error";
 
@@ -36,7 +37,11 @@ const MovieCast = () => {
         <p>No infomation about the cast</p>
       )}
       {movieCastData && movieCastData.length > 0 && (
-        <PaginatedItems castData={movieCastData} itemsPerPage={4} />
+        <PaginatedItems
+          data={movieCastData}
+          itemsPerPage={4}
+          RenderComponent={MovieCastList}
+        />
       )}
     </>
   );
