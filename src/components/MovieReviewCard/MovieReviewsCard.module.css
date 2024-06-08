@@ -1,0 +1,8 @@
+.title {
+  color: var(--accent-color);
+  margin-bottom: var(--medium-distance);
+}
+
+.review-text {
+  color: var(--extra-font-color);
+}

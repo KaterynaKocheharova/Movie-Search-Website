@@ -2,7 +2,7 @@
   --main-bg-color: #000;
   --extra-bg-color: rgba(255, 255, 255, 0.9);
   --main-font-color: rgba(255, 255, 255, 0.9);
-  --extra-font-color: color: rgb(0, 0, 0);
+  --extra-font-color: rgb(0, 0, 0);
   --accent-color: rgb(255, 0, 0);
 
   /* DISTANCE */
@@ -10,7 +10,7 @@
   --medium-distance: 1.5rem;
   --big-distance: 2.5rem;
 
-   /* FONT -SIZES */
+  /* FONT -SIZES */
   --small-font-size: 10px;
   --small-2-font-size: 14px;
   --medium-font-size: 20px;
@@ -20,21 +20,18 @@
   /* BORDER RADIUS */
   --card-border-radius: 10px;
   --btn-border-radius: 5px;
-   }
+}
 
 @media screen and (min-width: 1000px) {
-
   /* FONT-SIZES */
   :root {
     --small-font-size: 15px;
-    --small-2-font-size: 18px;
+    --small-2-font-size: 16px;
     --medium-font-size: 24px;
     --medium-2-font-size: 34px;
     --big-font-size: 50px;
   }
 }
-
-
 
 body {
   font-family: "Poppins", sans-serif;

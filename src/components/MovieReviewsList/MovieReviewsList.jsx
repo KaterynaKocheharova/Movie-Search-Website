@@ -1,10 +1,11 @@
 import MovieReviewCard from "../MovieReviewCard/MovieReviewCard";
+import css from "./MovieReviewsList.module.css";
 
 const MovieReviewsList = ({ reviewsData }) => {
   return (
-    <ul>
+    <ul className={css["list"]}>
       {reviewsData.map((reviewItem) => (
-        <li key={reviewItem.id}>
+        <li className={css.item} key={reviewItem.id}>
           <MovieReviewCard reviewData={reviewItem} />
         </li>
       ))}

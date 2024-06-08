@@ -1,0 +1,24 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--big-distance);
+  align-items: center;
+}
+
+.item {
+  padding: 1.5rem;
+  line-height: 1.8;
+  border-radius: var(--card-border-radius);
+  border: 1px solid var(--accent-color);
+  background-color: var(--extra-bg-color);
+}
+
+@media screen and (min-width: 900px) {
+  .item {
+    max-width: 900px;
+  }
+
+  .item p {
+    columns: 2;
+  }
+}
