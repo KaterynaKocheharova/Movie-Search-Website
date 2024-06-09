@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieReviews } from "../../movies-api";
 import MovieReviewsList from "../MovieReviewsList/MovieReviewsList";
+import PaginatedItems from "../PaginatedItems/PaginatedItems";
 import Loader from "../Loader/Loader";
 import Error from "../Error/Error";
 
@@ -36,7 +37,11 @@ const MovieReviews = () => {
         <p>No reviews found</p>
       )}
       {movieReviewsData && movieReviewsData.length > 0 && (
-        <MovieReviewsList reviewsData={movieReviewsData} />
+        <PaginatedItems
+          data={movieReviewsData}
+          itemsPerPage={1}
+          RenderComponent={MovieReviewsList}
+        />
       )}
     </>
   );

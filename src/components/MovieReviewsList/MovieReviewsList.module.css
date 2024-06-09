@@ -3,6 +3,7 @@
   flex-direction: column;
   row-gap: var(--big-distance);
   align-items: center;
+  margin-bottom: var(--big-distance);
 }
 
 .item {
