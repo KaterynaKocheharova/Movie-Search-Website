@@ -18,7 +18,6 @@
 }
 
 .pagination-item {
-  border: 1px solid var(--main-font-color);
   border-radius: var(--btn-border-radius);
   overflow: hidden;
   width: 30px;

@@ -36,6 +36,9 @@ const MovieDetailsPage = () => {
   const { title, release_date, vote_average, overview, genres, poster_path } =
     movieData || {};
 
+  const reviewItemRef = useRef();
+  const castItemRef = useRef();
+
   return (
     <>
       {loading && <Loader />}
@@ -88,7 +91,7 @@ const MovieDetailsPage = () => {
           </ul>
 
           <Suspense fallback={<div>Loading subpage</div>}>
-            <Outlet />
+            <Outlet context={{ reviewItemRef, castItemRef }} />
           </Suspense>
         </>
       )}
