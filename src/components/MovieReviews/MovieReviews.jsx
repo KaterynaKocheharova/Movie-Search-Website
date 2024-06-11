@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useOutletContext } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getMovieReviews } from "../../movies-api";
 import MovieReviewsList from "../MovieReviewsList/MovieReviewsList";
 import PaginatedItems from "../PaginatedItems/PaginatedItems";
@@ -11,7 +11,6 @@ const MovieReviews = () => {
   const [movieReviewsData, setMovieReviewsData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const { reviewItemRef } = useOutletContext();
 
   useEffect(() => {
     const getReviewsData = async () => {
@@ -39,7 +38,6 @@ const MovieReviews = () => {
       )}
       {movieReviewsData && movieReviewsData.length > 0 && (
         <PaginatedItems
-          ref={reviewItemRef}
           data={movieReviewsData}
           itemsPerPage={1}
           RenderComponent={MovieReviewsList}

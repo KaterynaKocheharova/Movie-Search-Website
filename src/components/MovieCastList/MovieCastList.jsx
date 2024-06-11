@@ -1,20 +1,23 @@
-import { forwardRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import MovieCastCard from "../MovieCastCard/MovieCastCard";
 import Grid from "../Grid/Grid";
 import css from "./MovieCaseList.module.css";
 import { handleScrollDown } from "../../helpers/scrolling";
 
-const MovieCastList = forwardRef(({ currentItems }, ref) => {
+const MovieCastList = ({ currentItems }) => {
+  const castItemRef = useRef();
   useEffect(() => {
-    handleScrollDown(ref.current);
-  }, [ref]);
+    if (castItemRef.current) {
+      handleScrollDown(castItemRef.current);
+    }
+  }, [castItemRef]);
 
   return (
     <>
       <Grid>
         {currentItems.map((castItem, index) => (
           <li
-            ref={index === 0 ? ref : null}
+            ref={index === 0 ? castItemRef : null}
             className={css["item"]}
             key={castItem.id}
           >
@@ -24,8 +27,6 @@ const MovieCastList = forwardRef(({ currentItems }, ref) => {
       </Grid>
     </>
   );
-});
-
-MovieCastList.displayName = "MovieCastList";
+};
 
 export default MovieCastList;

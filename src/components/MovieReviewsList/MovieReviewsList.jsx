@@ -1,18 +1,21 @@
-import { forwardRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { handleScrollDownByHalf } from "../../helpers/scrolling";
 import MovieReviewCard from "../MovieReviewCard/MovieReviewCard";
 import css from "./MovieReviewsList.module.css";
 
-const MovieReviewsList = forwardRef(({ currentItems }, ref) => {
+const MovieReviewsList = ({ currentItems }) => {
+  const reviewItemRef = useRef();
   useEffect(() => {
-    handleScrollDownByHalf(ref.current);
-  }, [ref]);
+    if (reviewItemRef.current) {
+      handleScrollDownByHalf(reviewItemRef.current);
+    }
+  }, [reviewItemRef]);
 
   return (
-    <ul className={css["list"]} ref={ref}>
+    <ul className={css["list"]} ref={reviewItemRef}>
       {currentItems.map((reviewItem, index) => (
         <li
-          ref={index !== 0 ? ref : null}
+          ref={index === 0 ? reviewItemRef : null}
           className={css.item}
           key={reviewItem.id}
         >
@@ -21,8 +24,6 @@ const MovieReviewsList = forwardRef(({ currentItems }, ref) => {
       ))}
     </ul>
   );
-});
-
-MovieReviewsList.displayName = "MovieReviewsList";
+};
 
 export default MovieReviewsList;

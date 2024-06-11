@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useOutletContext } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getMovieCast } from "../../movies-api";
 import PaginatedItems from "../PaginatedItems/PaginatedItems";
 import MovieCastList from "../MovieCastList/MovieCastList";
@@ -11,7 +11,6 @@ const MovieCast = () => {
   const [movieCastData, setMovieCastData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const { castItemRef } = useOutletContext();
 
   useEffect(() => {
     const getCastData = async () => {
@@ -39,7 +38,6 @@ const MovieCast = () => {
       )}
       {movieCastData && movieCastData.length > 0 && (
         <PaginatedItems
-          ref={castItemRef}
           data={movieCastData}
           itemsPerPage={4}
           RenderComponent={MovieCastList}
