@@ -6,6 +6,10 @@ export const handleScrollDown = (element) => {
   });
 };
 
-// make a function for reviews
-// simplify the code by using custom hooks
-// set is Scrolled already to avoid scrolling when we refresh the page
+export const handleScrollDownByHalf = (element) => {
+  const top = element.getBoundingClientRect().height / 2;
+  window.scrollBy({
+    top,
+    behavior: "smooth",
+  });
+};

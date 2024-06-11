@@ -1,8 +1,7 @@
-import { forwardRef } from "react";
+import { forwardRef, useEffect } from "react";
 import MovieCastCard from "../MovieCastCard/MovieCastCard";
 import Grid from "../Grid/Grid";
 import css from "./MovieCaseList.module.css";
-import { useEffect } from "react";
 import { handleScrollDown } from "../../helpers/scrolling";
 
 const MovieCastList = forwardRef(({ currentItems }, ref) => {

@@ -1,11 +1,11 @@
 import { forwardRef, useEffect } from "react";
-import { handleScrollDown } from "../../helpers/scrolling";
+import { handleScrollDownByHalf } from "../../helpers/scrolling";
 import MovieReviewCard from "../MovieReviewCard/MovieReviewCard";
 import css from "./MovieReviewsList.module.css";
 
 const MovieReviewsList = forwardRef(({ currentItems }, ref) => {
   useEffect(() => {
-    handleScrollDown(ref.current);
+    handleScrollDownByHalf(ref.current);
   }, [ref]);
 
   return (
