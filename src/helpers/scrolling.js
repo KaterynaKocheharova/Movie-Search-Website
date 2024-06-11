@@ -6,10 +6,9 @@ export const handleScrollDown = (element) => {
   });
 };
 
-export const handleScrollDownByHalf = (element) => {
-  const top = element.getBoundingClientRect().height / 2;
+export const handleScrollDownByHalf = () => {
   window.scrollBy({
-    top,
+    top: 200,
     behavior: "smooth",
   });
 };
