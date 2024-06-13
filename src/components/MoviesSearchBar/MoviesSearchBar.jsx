@@ -1,5 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { CiSearch } from "react-icons/ci";
 import * as Yup from "yup";
+import css from "./MovieSearchBar.module.css";
 
 const QueryValidationSchema = Yup.object().shape({
   query: Yup.string().required("Write your query first!"),
@@ -19,15 +21,20 @@ const MoviesSearchBar = ({ onSubmit }) => {
         onSubmit={submitQuery}
         validationSchema={QueryValidationSchema}
       >
-        {({ isSubmitting }) => (
-          <Form>
-            <Field type="text" name="query" />
-            <ErrorMessage name="query" component="div" />
-            <button type="submit" disabled={isSubmitting}>
-              Search movies
+        <Form className={css.form}>
+          <div className={css["field-group"]}>
+            <Field
+              className={css.field}
+              type="text"
+              name="query"
+              placeholder="Search for movies..."
+            />
+            <button className={css.button} type="submit">
+              <CiSearch className={css["search-icon"]} />
             </button>
-          </Form>
-        )}
+          </div>
+          <ErrorMessage className={css["error"]} name="query" component="div" />
+        </Form>
       </Formik>
     </div>
   );

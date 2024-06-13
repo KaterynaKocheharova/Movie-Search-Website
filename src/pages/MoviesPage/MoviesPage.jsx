@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import ReactPaginate from "https://cdn.skypack.dev/react-paginate@7.1.3";
 import { useSearchParams } from "react-router-dom";
 import { getFilteredTrendingMoviesToday } from "../../movies-api";
 import MoviesSearchBar from "../../components/MoviesSearchBar/MoviesSearchBar";
@@ -42,10 +41,6 @@ const MoviesPage = () => {
     setSearchParams({ query: value });
   };
 
-  const handlePageClick = (event) => {
-    setCurrentPage(event.selected + 1);
-  };
-
   return (
     <>
       <MoviesSearchBar onSubmit={handleSubmit} />
@@ -57,25 +52,6 @@ const MoviesPage = () => {
       {filteredMovies && !filteredMovies.length && !loading && query !== "" && (
         <p>No movies found matching your query.</p>
       )}
-      <ReactPaginate
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
-        marginPagesDisplayed={2}
-        previousLabel="< previous"
-        pageClassName="page-item"
-        pageLinkClassName="page-link"
-        previousClassName="page-item"
-        previousLinkClassName="page-link"
-        nextClassName="page-item"
-        nextLinkClassName="page-link"
-        breakLabel="..."
-        breakClassName="page-item"
-        breakLinkClassName="page-link"
-        containerClassName="pagination"
-        activeClassName="active"
-        renderOnZeroPageCount={null}
-      />
     </>
   );
 };

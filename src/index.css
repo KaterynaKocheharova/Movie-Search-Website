@@ -20,6 +20,10 @@
   /* BORDER RADIUS */
   --card-border-radius: 10px;
   --btn-border-radius: 5px;
+
+  /* BOX-SHADOW */
+  --shining-box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2),
+    0 6px 20px rgba(255, 255, 255, 0.19);
 }
 
 @media screen and (min-width: 1000px) {

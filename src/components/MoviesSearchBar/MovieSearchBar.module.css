@@ -1,0 +1,48 @@
+.field-group {
+  max-width: 300px;
+  position: relative;
+}
+
+@media screen and (min-width: 500px) {
+  .filed-group {
+    width: 300px;
+  }
+}
+
+.field {
+  width: 100%;
+  border-radius: 25px;
+  background-color: var(--extra-bg-color);
+  color: var(--extra-font-color);
+  font-size: var(--small-2-font-size);
+  outline: none;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 24px;
+  outline: none;
+  border: none;
+  margin-bottom: var(--medium-distance);
+}
+
+.field:focus {
+  box-shadow: var(--shining-box-shadow);
+}
+
+.button {
+  position: absolute;
+  top: 0;
+  right: var(--small-distance);
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.search-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.error {
+  margin-bottom: var(--big-distance);
+}
