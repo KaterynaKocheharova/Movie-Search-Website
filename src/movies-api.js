@@ -41,7 +41,7 @@ export const getMovieReviews = async (id) => {
   return res;
 };
 
-export const getFilteredTrendingMoviesToday = async (query, page) => {
+export const getMoviesByQuery = async (query, page) => {
   const end_point = "/search/movie";
   const res = await axios.get(end_point, {
     params: {

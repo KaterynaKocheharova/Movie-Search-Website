@@ -6,6 +6,7 @@ import { defaultMovieImg } from "../../default-props";
 import BackLink from "../../components/BackLink/BackLink";
 import Loader from "../../components/Loader/Loader";
 import Error from "../../components/Error/Error";
+import Button from "../../components/Button/Button";
 import css from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
@@ -76,13 +77,13 @@ const MovieDetailsPage = () => {
           <h3 className={css["add-info-title"]}>Additional information</h3>
           <ul className={css["add-info-flex"]}>
             <li>
-              <Link className={css["add-info-link"]} to="cast">
-                Cast
+              <Link to="cast">
+                <Button>Cast</Button>
               </Link>
             </li>
             <li>
-              <Link className={css["add-info-link"]} to="reviews">
-                Reviews
+              <Link to="reviews">
+                <Button>Reviews</Button>
               </Link>
             </li>
           </ul>
