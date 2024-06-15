@@ -1,4 +1,6 @@
-.movie-image {
+.image-container {
+  height: 200px;
+  overflow: hidden;
   margin-bottom: var(--medium-distance);
 }
 

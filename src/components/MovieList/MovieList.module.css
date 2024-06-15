@@ -1,5 +1,6 @@
 .movie-item {
   border-radius: var(--card-border-radius);
+  overflow: hidden;
   border-bottom: 1px solid var(--main-font-color);
   padding-bottom: var(--medium-distance);
   box-shadow: var(--shining-box-shadow);

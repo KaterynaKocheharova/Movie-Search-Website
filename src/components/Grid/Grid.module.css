@@ -4,5 +4,5 @@
   justify-content: center;
   column-gap: var(--big-distance);
   row-gap: 100px;
-  margin-bottom: var(--big-distance);
+  margin-bottom: 5rem;
 }
