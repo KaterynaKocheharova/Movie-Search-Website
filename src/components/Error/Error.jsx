@@ -1,11 +1,11 @@
-import css from "./Error.module.css"
+import css from "./Error.module.css";
 
-const Error = ({ error }) => {
+const Error = ({ children, error }) => {
   return (
-    <p className={css.error}>
-      Oops. Something went wrong. Check your internet connection or try again
-      later. {error}
-    </p>
+    <>
+      <p className={css.error}>{children}</p>
+      <p>{error && error}</p>
+    </>
   );
 };
 

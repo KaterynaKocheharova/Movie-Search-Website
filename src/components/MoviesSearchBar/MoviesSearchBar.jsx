@@ -10,7 +10,6 @@ const QueryValidationSchema = Yup.object().shape({
 const MoviesSearchBar = ({ onSubmit }) => {
   const submitQuery = (values, actions) => {
     onSubmit(values.query);
-    actions.setSubmitting(false);
     actions.resetForm();
   };
 

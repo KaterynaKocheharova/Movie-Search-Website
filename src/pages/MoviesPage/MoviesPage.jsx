@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getMoviesByQuery } from "../../movies-api";
 import MoviesSearchBar from "../../components/MoviesSearchBar/MoviesSearchBar";
@@ -11,11 +11,10 @@ const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams({});
   const [currentPage, setCurrentPage] = useState(1);
   const [maxPages, setMaxPages] = useState(0);
-  const query = searchParams.get("query") ?? "";
-
+  const query = useMemo(() => searchParams.get("query") ?? "", [searchParams]);
   useEffect(() => {
     setLoading(true);
     setError(null);
@@ -23,12 +22,12 @@ const MoviesPage = () => {
       try {
         if (!query) return;
         const moviesData = await getMoviesByQuery(query, currentPage);
-        moviesData.data.results.forEach((result) => {
-          console.log(`${result.id}`);
-        });
-        console.log("The end of this request");
+        // moviesData.data.results.forEach((result) => {
+        //   console.log(`${result.id}`);
+        // });
+        // console.log("The end of this request");
         if (currentPage === 1) {
-          setMaxPages(moviesData.data["total_pages"]);
+          setMaxPages(moviesData.data.total_pages);
           setMovies(moviesData.data.results);
         } else {
           setMovies((prevMovies) => [
@@ -59,11 +58,12 @@ const MoviesPage = () => {
     <>
       <MoviesSearchBar onSubmit={handleSubmit} />
       {loading && <Loader />}
-      {error && <Error />}
+      {error && <Error>Oops. Something went wrong. Check your internet connection or try again
+        later.</Error>}
       {movies.length > 0 && <MovieList movies={movies} />}
-      {/* {!movies.length && !loading && query !== "" && (
-        <p>No movies found matching your query.</p>
-      )} */}
+      {!movies.length && query !== "" && !loading && !error && (
+        <Error>No movies found matching your query.</Error>
+      )} 
       {movies.length > 0 && !loading && currentPage < maxPages && (
         <Button onClick={handleLoadMoreClick} shouldCenter>
           Load more
