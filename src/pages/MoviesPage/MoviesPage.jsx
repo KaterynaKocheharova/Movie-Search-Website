@@ -23,10 +23,10 @@ const MoviesPage = () => {
       try {
         if (!query) return;
         const moviesData = await getMoviesByQuery(query, currentPage);
-        // moviesData.data.results.forEach((result) => {
-        //   console.log(`${result.id}`);
-        // });
-        // console.log("The end of this request");
+        moviesData.data.results.forEach((result) => {
+          console.log(`${result.id}`);
+        });
+        console.log("The end of this request");
         if (currentPage === 1) {
           setMaxPages(moviesData.data["total_pages"]);
           setMovies(moviesData.data.results);

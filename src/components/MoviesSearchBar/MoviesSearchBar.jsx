@@ -15,28 +15,26 @@ const MoviesSearchBar = ({ onSubmit }) => {
   };
 
   return (
-    <div>
-      <Formik
-        initialValues={{ query: "" }}
-        onSubmit={submitQuery}
-        validationSchema={QueryValidationSchema}
-      >
-        <Form className={css.form}>
-          <div className={css["field-group"]}>
-            <Field
-              className={css.field}
-              type="text"
-              name="query"
-              placeholder="Search for movies..."
-            />
-            <button className={css.button} type="submit">
-              <CiSearch className={css["search-icon"]} />
-            </button>
-          </div>
-          <ErrorMessage className={css["error"]} name="query" component="div" />
-        </Form>
-      </Formik>
-    </div>
+    <Formik
+      initialValues={{ query: "" }}
+      onSubmit={submitQuery}
+      validationSchema={QueryValidationSchema}
+    >
+      <Form className={css.form}>
+        <div className={css["field-group"]}>
+          <Field
+            className={css.field}
+            type="text"
+            name="query"
+            placeholder="Search for movies..."
+          />
+          <button className={css.button} type="submit">
+            <CiSearch className={css["search-icon"]} />
+          </button>
+        </div>
+        <ErrorMessage className={css["error"]} name="query" component="div" />
+      </Form>
+    </Formik>
   );
 };
 
