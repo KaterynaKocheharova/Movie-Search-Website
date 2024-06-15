@@ -22,10 +22,6 @@ const MoviesPage = () => {
       try {
         if (!query) return;
         const moviesData = await getMoviesByQuery(query, currentPage);
-        // moviesData.data.results.forEach((result) => {
-        //   console.log(`${result.id}`);
-        // });
-        // console.log("The end of this request");
         if (currentPage === 1) {
           setMaxPages(moviesData.data.total_pages);
           setMovies(moviesData.data.results);
@@ -53,6 +49,12 @@ const MoviesPage = () => {
   const handleLoadMoreClick = () => {
     setCurrentPage((prevPage) => prevPage + 1);
   };
+
+  // I need to scroll after new movies get updated and only if it's not the first page
+  // I need execute scrolling function
+  // In the scrolling function I need to get access to the height of the first card
+  // to do this create ref, pass to the moviesList
+  // use forwardRef in moviesList
 
   return (
     <>
