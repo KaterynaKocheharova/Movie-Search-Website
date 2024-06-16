@@ -1,5 +1,5 @@
 export const handleScrollDown = (element) => {
-  const top = element.getBoundingClientRect().height;
+  const top = element.getBoundingClientRect().height * 2;
   window.scrollBy({
     top,
     behavior: "smooth",

@@ -17,7 +17,7 @@ const PaginatedItems = ({ itemsPerPage, data, RenderComponent }) => {
   return (
     <>
       <RenderComponent currentItems={currentItems} />
-      {data.length > 1 && (
+      {data.length > itemsPerPage && (
         <ReactPaginate
           breakLabel="..."
           nextLabel=">"

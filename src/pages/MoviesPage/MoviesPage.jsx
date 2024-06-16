@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getMoviesByQuery } from "../../movies-api";
 import MoviesSearchBar from "../../components/MoviesSearchBar/MoviesSearchBar";
@@ -6,6 +6,7 @@ import MovieList from "../../components/MovieList/MovieList";
 import Error from "../../components/Error/Error";
 import Loader from "../../components/Loader/Loader";
 import Button from "../../components/Button/Button";
+import { handleScrollDown } from "../../helpers/scrolling";
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
@@ -50,22 +51,27 @@ const MoviesPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
   };
 
-  // I need to scroll after new movies get updated and only if it's not the first page
-  // I need execute scrolling function
-  // In the scrolling function I need to get access to the height of the first card
-  // to do this create ref, pass to the moviesList
-  // use forwardRef in moviesList
+  const moviesItemRef = useRef();
+
+  useEffect(() => {
+    if (currentPage === 1) return;
+    handleScrollDown(moviesItemRef.current);
+  }, [movies, currentPage]);
 
   return (
     <>
       <MoviesSearchBar onSubmit={handleSubmit} />
       {loading && <Loader />}
-      {error && <Error>Oops. Something went wrong. Check your internet connection or try again
-        later.</Error>}
-      {movies.length > 0 && <MovieList movies={movies} />}
+      {error && (
+        <Error>
+          Oops. Something went wrong. Check your internet connection or try
+          again later.
+        </Error>
+      )}
+      {movies.length > 0 && <MovieList movies={movies} ref={moviesItemRef} />}
       {!movies.length && query !== "" && !loading && !error && (
         <Error>No movies found matching your query.</Error>
-      )} 
+      )}
       {movies.length > 0 && !loading && currentPage < maxPages && (
         <Button onClick={handleLoadMoreClick} shouldCenter>
           Load more

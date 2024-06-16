@@ -5,3 +5,12 @@
   padding-bottom: var(--medium-distance);
   box-shadow: var(--shining-box-shadow);
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  justify-content: center;
+  column-gap: var(--big-distance);
+  row-gap: 100px;
+  margin-bottom: 5rem;
+}
