@@ -34,7 +34,7 @@ const MovieReviews = () => {
       {loading && <Loader />}
       {error && <Error error={error} />}
       {movieReviewsData && !movieReviewsData.length && !loading && (
-        <p>No reviews found</p>
+        <Error>No reviews found</Error>
       )}
       {movieReviewsData && movieReviewsData.length > 0 && (
         <PaginatedItems

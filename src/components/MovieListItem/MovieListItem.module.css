@@ -5,7 +5,11 @@
 }
 
 .movie-name {
+  padding: 1rem;
   text-align: center;
   font-weight: 600;
   margin-bottom: var(--medium-distance);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

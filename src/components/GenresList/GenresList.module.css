@@ -9,6 +9,11 @@
   text-align: center;
   padding: 5px;
   border-radius: var(--card-border-radius);
-  background-color: var(--accent-color);
-  font-size: var(--small-font-size);
+  background-color: var(--extra-bg-color);
+  color: var(--extra-font-color);
+  font-size: 10px;
+}
+
+.genres-container {
+  padding: 10px;
 }

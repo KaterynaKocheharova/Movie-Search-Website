@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieCast } from "../../movies-api";
+import Error from "../Error/Error";
 import PaginatedItems from "../PaginatedItems/PaginatedItems";
 import MovieCastList from "../MovieCastList/MovieCastList";
 import Loader from "../Loader/Loader";
-import Error from "../Error/Error";
 
 const MovieCast = () => {
   const { movieId } = useParams();
@@ -33,8 +33,8 @@ const MovieCast = () => {
     <>
       {loading && <Loader />}
       {error && <Error error={error} />}
-      {movieCastData && !movieCastData && !loading && (
-        <p>No infomation about the cast</p>
+      {movieCastData && !movieCastData.length && !loading && (
+        <Error>No infomation about the cast</Error>
       )}
       {movieCastData && movieCastData.length > 0 && (
         <PaginatedItems

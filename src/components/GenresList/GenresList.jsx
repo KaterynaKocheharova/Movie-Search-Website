@@ -7,13 +7,15 @@ const GenresList = ({ ids, genres }) => {
     genresArray.push(...filteredGenres);
   });
   return (
-    <ul className={css["genres-container"]}>
-      {genresArray.map((genre) => (
-        <li className={css["genres-item"]} key={genre.id}>
-          {genre.name}
-        </li>
-      ))}
-    </ul>
+    <div className={css["genres-continer"]}>
+      <ul className={css["genres-container"]}>
+        {genresArray.map((genre) => (
+          <li className={css["genres-item"]} key={genre.id}>
+            {genre.name}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

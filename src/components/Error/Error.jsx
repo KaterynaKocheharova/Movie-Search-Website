@@ -4,7 +4,7 @@ const Error = ({ children, error }) => {
   return (
     <>
       <p className={css.error}>{children}</p>
-      <p>{error && error}</p>
+      {error && <p>{error}</p>}
     </>
   );
 };
