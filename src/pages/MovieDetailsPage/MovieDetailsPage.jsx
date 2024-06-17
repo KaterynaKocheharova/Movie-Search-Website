@@ -1,7 +1,6 @@
-import { Suspense, useRef } from "react";
-import { useState, useEffect } from "react";
-import { useParams, useLocation, Link, Outlet } from "react-router-dom";
-import { getMovieDetails } from "../../movies-api";
+import { Link, Outlet } from "react-router-dom";
+import { Suspense } from "react";
+import { useFetchMovieDetails } from "../../hooks";
 import { defaultMovieImg } from "../../default-props";
 import BackLink from "../../components/BackLink/BackLink";
 import Loader from "../../components/Loader/Loader";
@@ -10,29 +9,7 @@ import Button from "../../components/Button/Button";
 import css from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
-  const [movieData, setMovieData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const { movieId } = useParams();
-  const location = useLocation();
-  const backLinkHref = useRef(location.state ?? "/movies");
-
-  useEffect(() => {
-    const getMovieById = async () => {
-      setError(null);
-      setLoading(true);
-      try {
-        const movieData = await getMovieDetails(movieId);
-        setMovieData(movieData);
-      } catch (error) {
-        setError(error);
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    getMovieById();
-  }, [movieId]);
+  const { movieData, loading, error, backLinkHref } = useFetchMovieDetails();
 
   const { title, release_date, vote_average, overview, genres, poster_path } =
     movieData || {};
