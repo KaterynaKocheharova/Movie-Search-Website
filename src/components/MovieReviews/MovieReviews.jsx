@@ -1,33 +1,11 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { getMovieReviews } from "../../movies-api";
+import { useFetchReviews } from "../../hooks/useFetchReviews";
 import MovieReviewsList from "../MovieReviewsList/MovieReviewsList";
 import PaginatedItems from "../PaginatedItems/PaginatedItems";
 import Loader from "../Loader/Loader";
 import Error from "../Error/Error";
 
 const MovieReviews = () => {
-  const { movieId } = useParams();
-  const [movieReviewsData, setMovieReviewsData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const getReviewsData = async () => {
-      setLoading(true);
-      setError(null);
-      if (!movieId) return;
-      try {
-        const reviewsData = await getMovieReviews(movieId);
-        setMovieReviewsData(reviewsData.data.results);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    getReviewsData();
-  }, [movieId]);
+  const { movieReviewsData, loading, error } = useFetchReviews();
 
   return (
     <>
