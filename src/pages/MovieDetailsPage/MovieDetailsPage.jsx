@@ -10,7 +10,6 @@ import css from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const { movieData, loading, error, backLinkHref } = useFetchMovieDetails();
-
   const { title, release_date, vote_average, overview, genres, poster_path } =
     movieData || {};
 
