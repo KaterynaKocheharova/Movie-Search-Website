@@ -10,7 +10,12 @@ const Home = () => {
     <>
       <h2 className={css.title}>Trending Today</h2>
       {loading && <Loader />}
-      {error && <Error />}
+      {error && (
+        <Error>
+          Oops. Something went wrong. Check your internet connection. Error:{" "}
+          {error.message}
+        </Error>
+      )}
       {movies.length > 0 && <MovieList movies={movies} />}
     </>
   );

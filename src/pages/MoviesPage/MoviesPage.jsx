@@ -24,8 +24,8 @@ const MoviesPage = () => {
       {loading && <Loader />}
       {error && (
         <Error>
-          Oops. Something went wrong. Check your internet connection or try
-          again later.
+          Oops. Something went wrong. Check your internet connection. Error:
+          {error.message}
         </Error>
       )}
       {movies.length > 0 && <MovieList movies={movies} ref={moviesItemRef} />}

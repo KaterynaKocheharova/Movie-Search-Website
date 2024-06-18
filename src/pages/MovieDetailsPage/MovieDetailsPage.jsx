@@ -16,7 +16,12 @@ const MovieDetailsPage = () => {
   return (
     <>
       {loading && <Loader />}
-      {error && <Error />}
+      {error && (
+        <Error>
+          Oops. Something went wrong. Check your internet connection. Error:{" "}
+          {error.message}
+        </Error>
+      )}
       {movieData && (
         <>
           <BackLink to={backLinkHref.current}>Back</BackLink>
