@@ -27,5 +27,5 @@ export const useFetchMovieDetails = () => {
     getMovieById();
   }, [movieId]);
 
-  return { movieData, loading, error, backLinkHref };
+  return { movieData, loading, error, backLinkHref, movieId };
 };

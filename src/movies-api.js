@@ -62,3 +62,14 @@ export const getAllGenres = async () => {
   });
   return res;
 };
+
+export const getVideo = async (movie_id) => {
+  const end_point = `/movie/${movie_id}/videos`;
+  const res = await axios.get(end_point, {
+    params: {
+      params,
+    },
+  });
+  console.log(res);
+  return res;
+};

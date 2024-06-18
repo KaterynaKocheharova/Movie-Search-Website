@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Section from "./components/Section/Section";
 import Container from "./components/Container/Container";
 import Navigation from "./components/Navigation/Navigation";
+import Loader from "./components/Loader/Loader";
 import css from "./App.module.css";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
@@ -16,6 +17,7 @@ const MovieCast = lazy(() => import("./components/MovieCast/MovieCast"));
 const MovieReviews = lazy(() =>
   import("./components/MovieReviews/MovieReviews")
 );
+const WatchPage = lazy(() => import("./pages/WatchPage/WatchPage"));
 
 function App() {
   return (
@@ -28,7 +30,7 @@ function App() {
       <main>
         <Section>
           <Container>
-            <Suspense fallback={<div>Loading page...</div>}>
+            <Suspense fallback={<Loader />}>
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/movies" element={<MoviesPage />} />
@@ -36,6 +38,7 @@ function App() {
                   <Route path="cast" element={<MovieCast />} />
                   <Route path="reviews" element={<MovieReviews />} />
                 </Route>
+                <Route path="/movies/:movieId/watch" element={<WatchPage />} />
                 <Route path="*" element={<NotFoundPage />} />
               </Routes>
             </Suspense>
