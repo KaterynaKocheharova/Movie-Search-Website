@@ -1,9 +1,9 @@
 import { Link, Outlet } from "react-router-dom";
 import { Suspense } from "react";
-import { useState, useEffect, useRef } from "react";
-import { useParams, useLocation } from "react-router-dom";
-import { getMovieDetails } from "../../movies-api";
-// import { useFetchMovieDetails } from "../../hooks";
+// import { useState, useEffect, useRef } from "react";
+// import { useParams, useLocation } from "react-router-dom";
+// import { getMovieDetails } from "../../movies-api";
+import { useFetchMovieDetails } from "../../hooks";
 import { defaultMovieImg } from "../../default-props";
 import BackLink from "../../components/BackLink/BackLink";
 import Loader from "../../components/Loader/Loader";
@@ -12,33 +12,34 @@ import Button from "../../components/Button/Button";
 import css from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
-  // const { movieData, loading, error, backLinkHref } = useFetchMovieDetails();
+  const { movieData, loading, error, backLinkHref, movieId } =
+    useFetchMovieDetails();
 
-  const [movieData, setMovieData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const { movieId } = useParams();
-  const location = useLocation();
-  const backLinkHref = useRef(location.state ?? "/movies");
+  // const [movieData, setMovieData] = useState(null);
+  // const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState(null);
+  // const { movieId } = useParams();
+  // const location = useLocation();
+  // const backLinkHref = useRef(location.state ?? "/movies");
 
-  console.log(movieId);
+  // console.log(movieId);
 
-  useEffect(() => {
-    const getMovieById = async () => {
-      setError(null);
-      setLoading(true);
-      try {
-        const movieData = await getMovieDetails(movieId);
-        setMovieData(movieData);
-      } catch (error) {
-        setError(error);
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    getMovieById();
-  }, [movieId]);
+  // useEffect(() => {
+  //   const getMovieById = async () => {
+  //     setError(null);
+  //     setLoading(true);
+  //     try {
+  //       const movieData = await getMovieDetails(movieId);
+  //       setMovieData(movieData);
+  //     } catch (error) {
+  //       setError(error);
+  //       console.error(error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+  //   getMovieById();
+  // }, [movieId]);
 
   const { title, release_date, vote_average, overview, genres, poster_path } =
     movieData || {};
