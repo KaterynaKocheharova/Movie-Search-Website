@@ -8,6 +8,7 @@ export const useFetchMovieDetails = () => {
   const [error, setError] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
+  console.log(location);
   const backLinkHref = useRef(location.state ?? "/movies");
 
   useEffect(() => {
